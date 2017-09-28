@@ -111,15 +111,15 @@ export class MediatorMap implements IMediatorMap, IViewHandler {
     /**
      * @inheritDoc
      */
-    public mediate(item: any): void {
-        this._viewHandler.handleItem(item, <any>item["constructor"]);
+    public mediate(item: any): boolean {
+        return this._viewHandler.handleItem(item, <any>item["constructor"]);
     }
 
     /**
      * @inheritDoc
      */
-    public unmediate(item: any): void {
-        this._factory.removeMediators(item);
+    public unmediate(item: any): boolean {
+        return this._factory.removeMediators(item);
     }
 
     /**

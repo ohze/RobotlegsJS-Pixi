@@ -85,17 +85,17 @@ export class MediatorFactory {
     /**
      * @private
      */
-    public removeMediators(item: any): void {
+    public removeMediators(item: any): boolean {
         let mediators: Map<any, IMediatorMapping> = this._mediators.get(item);
         if (!mediators) {
-            return;
+            return false;
         }
 
         mediators.forEach((value, key) =>
             this._manager.removeMediator(value, item, key)
         );
 
-        this._mediators.delete(item);
+        return this._mediators.delete(item);
     }
 
     /**

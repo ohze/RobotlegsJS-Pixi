@@ -79,11 +79,9 @@ export class MediatorViewHandler implements IViewHandler {
     /**
      * @private
      */
-    public handleItem(item: Object, type: FunctionConstructor): void {
+    public handleItem(item: Object, type: FunctionConstructor): boolean {
         let interestedMappings = this.getInterestedMappingsFor(item, type);
-        if (interestedMappings) {
-            this._factory.createMediators(item, type, interestedMappings);
-        }
+        return interestedMappings && this._factory.createMediators(item, type, interestedMappings).length > 0;
     }
 
     /*============================================================================*/

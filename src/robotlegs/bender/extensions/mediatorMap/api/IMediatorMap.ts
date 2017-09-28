@@ -49,14 +49,16 @@ export interface IMediatorMap {
     /**
      * Mediates an item directly. If the item matches any mapped matchers or types then it will be mediated according to those mappings.
      * @param item The item to create mediators for.
+     * @return the boolean, item is created mediator.
      */
-    mediate(item: any): void;
+    mediate(item: any): boolean;
 
     /**
      * Removes the mediators for an item if there are any.
      * @param item The item to remove mediators for.
+     *  @return the boolean, item is removed mediator.
      */
-    unmediate(item: any): void;
+    unmediate(item: any): boolean;
 
     /**
      * Removes all mediators
